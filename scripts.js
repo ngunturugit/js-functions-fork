@@ -1,188 +1,80 @@
-// helper function to display to page
-function addToPage(string){
-	document.querySelector("#section1 ul").innerHTML += `<li>${string}</li>`;
+// Functions Practice
+// For the first standard function, write a function that accepts two numbers as parameters, adds them together, then returns the result of that addition
+// name this function addTwoNums
+// TO DO
+function addTwoNums(num1, num2){
+    let sum = 0;
+    sum = num1 + num2;
+    return sum;
 }
 
-// let's write a function that accepts two arguments then adds them together. If the arguments aren't both numbers, concatenate that with the other argument and a space between the args, otherwise perform addition
 
-function addTheValues(param1),(param2){
-    if(isNaN(param1)) || isNaN{(param2)}
-        addToPage("One of the parameters is not a number. When added they equal: " + param1 + " " + param2);
-        param1 + " " + param2);
+// For box 2, let's accept two string parameters and return the result of them concatenated into a single string with a space between the two words
+// name this function concatenateStrings
+// TO DO
+function concatenateStrings(str1, str2){
+    return str1 + "" + str2;
+}
 
+
+// for the first function expression, let's write code that displays returns one result if the number entered by the user is less than 100 ("number is less than 100"), and another message if the number is greater than or equal to 100 ("that is 100 or greater")
+// name this variable compareToHundred
+// TO DO
+let compareToHundred = function(num1){
+    if(num1 < 100){
+        return "number is less than 100"
     }else{
-        addToPage("Both values are numbers. Added together they equal: " + (param1 + param2));
-    
-
+        return "That is 100 or greater";
     }
 }
-// call the function a few times with different parameters
-
-// let's talk about scope and see it in action
-// function with a local variable to display to the screen
-addTheValues(2,3);
-addTheValues("hi",3);
-addTheValues(2,"hi");
-addTheValues("hello","world");
-addTheValues("3",2);
-
-// do functions execute when you don't call them?
-function scopeExample(){
-    let localVariable = "This is a local variable inside of the scopeExample function.";
-    addToPage(localVariable);
-}
-
-scopeExample();
-// this won't work because this variable does not exist outside of the scopeExample function
-// try to access that local variable from the previous function
-addToPage(localVariable);
 
 
+// for the second function expression, let's write code that tells the user whether or not their answer to a trivia question is correct. This will accept a parameter for a letter answer, and can use either a switch statement or a series of if/else/if statements for the logic
+// name this variable quizAnswer
+// TO DO
+		// if they answered a return "Nope. GIT215 is the Introductory HTML/CSS course."
+let quizAnswer = function(answer){
+    switch(answer){
 
-// let's create a global score variable
-let score = 0;
+		// if they answered a return "Nope. GIT215 is the Introductory HTML/CSS course."
+        case "a":
+            return "Nope. GIT337 is the Introductory HTML/CSS course.";
 
-// now let's write a function that will add two to the current score each time it's called
-function scoreBasket(){
-    return score += 2;
-}
+		// if they answered b return "Nope. GIT337 is the Intermediate HTML/CSS course."
 
-// we could also have a function for a three-pointer
-scoreBasket();
-scoreBasket();
-addToPage("The score after two baskets: " + score);
+        case "b":
+            return "Nope. GIT337 is the Intermediate HTML/CSS course.";
 
-// now let's call that a couple of times, then write the current score to the page
+		// if they answered c return "Nope. GIT414 is the Responsive HTML/CSS course."
+
+        case "c":
+            return "Nope. GIT337 is the Responsive HTML/CSS course.";
+
+		// if they answered d return "You got it! GIT417 is the Introductory JavaScript course."
+
+
+        case "d":
+            return "Nope. GIT337 is the Introductory JavaScript course.";
+    }
+}    
+// For box five, re-write the first standard function in the arrow function syntax
+// name the variable addTwoNumsArrow
 // TO DO
 
-// don't forget, you can call a function that returns a value and assign that returned value to a variable
-// this function will double the parameter's value and return it
-let number = 5;
+let addTwoNumsArrow = (num1, num2) => num1 + num2;
 
-function doubleMyNumber(number){
-    return number *= 2;
-}
-
-// let's create a number variable and initialize it to a value of 5
-doubleMyNumber(number);
-
-// now let's call doubleMyNumber and pass in number as the parameter, then assign the returned value back to number
-addToPage("The number variable after doubling: " + number);
-
-// and let's write that value to the page
+// For box five, re-write the second standard function in the arrow function syntax
+// name the variable concatenateStringsArrow
+// TO DO
 
 
-// let's re-write that last function as an arrow function and use it to double the number variable again
-let doubleMyNumberArrow = () => number *= 2;
-
-// now call that function again
-doubleMyNumberArrow(number);
-
-// and write the value to the page again
-addToPage("The number variable after doubling again: " + number);
-
-// write a function to convert an amount of change under one dollar 
-// to the number and type of coins needed to make that change
-// we will return the number of each type of coin in order using an array like this:
-// [quarters, dimes, nickels, pennies]
-function calcChange(amount){
-    let quarters = Math.floor(amount / 25);
-    amount = amount - (quarters * 25);
-    let dimes = Math.floor(amount / 10);
-    amount = amount - (dimes * 10);
-    let nickels = Math.floor(amount / 5);
-    amount = amount - (nickels * 5);
-    let pennies = amount;
-
-    return [quarters, dimes, nickels, pennies];
-}
-
-// practice from one of the zyBooks activities
-// The code below produces a 5 x 10 box of question marks. Convert the code into a function called drawBox() that has three parameters:
-// numRows - The number of rows for the box.
-// numCols - The number of columns for the box.
-// boxChar - The character to use to create the box. If no argument is supplied, use "X".
-// Ex: drawBox(5, 4, "!") and drawBox(2, 6) should display the boxes pictured below.
-
-// !!!!
-// !!!!
-// !!!!
-// !!!!
-// !!!!
-// XXXXXX
-// XXXXXX
-// Convert into a drawBox function
-function drawBox(numRows,Numcols,BoxChar){
-    if(boxChar === undefined){
-        boxChar = "X";
-    }
-    // you could also write the code below to assign the value to the boxChar variable 
-    // let boxChar = boxChar || "X";
-
-    for (let r = 0; r < numRows; r++) {
-        let line = "";
-        for (let c = 0; c < numCols; c++) {
-            line += boxChar;
-        }
-        output += line + "<br";
-        
-    }
-    addToPage(output);
-}
-// call our new function with different arguments
-drawBox (3,3);
-drawBox (4,4,"*");
 
 
-// ------------------------------------
-// CODE BELOW IS COMPLETE - DO NOT EDIT
-// ------------------------------------
+let concatenateStringsArrow = (str1,str2) => str1 + " " + str2;
 
-// help calcChange Function
-function helpCalcChange(e){
-    // prevent default form submission
-    e.preventDefault();
 
-    // get form input where user will enter change
-    let input = document.getElementById("cents");
 
-    // convert that input's value into a number
-    let cents = parseInt(input.value);
-
-    // hide any previous error messages
-    input.nextElementSibling.classList.add("hidden");
-
-    // validate that we have a valid number between 1 and 99 in the input
-    if(parseInt(cents) < 1 || parseInt(cents) > 99 || isNaN(cents)){
-        // show the error span, because we do not have valid input
-        input.nextElementSibling.classList.remove("hidden");
-    }else{
-        // call the function above to calculate the amount of each coin needed, handle returned info
-        let coins = calcChange(parseInt(cents));
-        console.log(coins);
-
-        // display the change in the document
-        document.getElementById("quarters").value = coins[0];
-        document.getElementById("dimes").value = coins[1];
-        document.getElementById("nickels").value = coins[2];
-        document.getElementById("pennies").value = coins[3];
-
-        // clear the input
-        input.value = "";
-
-        // give the input focus again
-        input.focus();
-    }
-}
-
-// attaching event handlers to buttons
-document.getElementById("calculate").addEventListener("click", helpCalcChange);
-
-// this code updates the year in the footer for the copyright on page load
-// this style of function  is an immediately invoked function expression (IIFE)
-// it is an anonymous function that calls itself and only runs on page load once
-(function(){
+@@ -361,4 +375,4 @@ hljs.highlightAll();
 	let now = new Date();
 	let span = document.querySelector("footer span");
 	span.innerHTML = now.getFullYear();
-})();
